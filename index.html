@@ -155,13 +155,35 @@
     .share-btn:hover { background: #d9873e; }
     .share-toast { font-size: 14px; color: #0F6E56; margin-top: 12px; text-align: center; display: none; }
 
+    /* Event CTA: sits below the actions so "Download result" stays right under the card.
+       Left-aligned like the question text, since centred lines are harder to track. */
+    .event-cta {
+      display: flex; align-items: flex-start; gap: 12px;
+      width: 100%; margin-top: 24px; padding: 16px;
+      border-radius: 12px; background: #fdf1e0; border: 1px solid #f0d9b5;
+      color: #57351f; font-size: 15px; line-height: 1.6; letter-spacing: 0.02em; text-align: left;
+    }
+    .event-cta .ti { font-size: 22px; line-height: 1.1; color: #c5651f; flex-shrink: 0; }
+    .event-cta strong { font-weight: 600; }
+    .event-cta-body { display: flex; flex-direction: column; gap: 4px; }
+    .event-cta-hook { font-weight: 600; }
+    /* Styled as a button so it reads as the next step, but it's a real <a>: Eventbrite
+       opens in a new tab and the quiz result stays put behind it. */
+    .event-cta-link {
+      align-self: flex-start; margin-top: 8px; padding: 8px 16px; border-radius: 8px;
+      background: #c5651f; color: #fff; font-weight: 600; text-decoration: none;
+    }
+    .event-cta-link:hover { background: #a9531a; }
+
     /* Keyboard focus: a distinct blue outline on every interactive element so
        "I'm focused here" is never confusable with the brown ".selected" state. */
     .start-btn:focus-visible,
     .opt:focus-visible,
     .back-btn:focus-visible,
     .retry-btn:focus-visible,
-    .share-btn:focus-visible {
+    .share-btn:focus-visible,
+    .event-cta-link:focus-visible,
+    footer a:focus-visible {
       outline: 2px solid #2563eb;
       outline-offset: 2px;
     }
@@ -171,6 +193,7 @@
       padding: 16px; border-top: 0.5px solid #eee;
       width: 100%;
     }
+    footer a { color: inherit; text-underline-offset: 2px; }
 
     /* Mobile */
     @media (max-width: 480px) {
@@ -190,6 +213,7 @@
       .opt.selected { padding: 11px 35px 11px 15px; }
 
       .action-row { flex-direction: column; }
+      .event-cta { font-size: 14px; }
 
       footer { font-size: 12px; }
     }
@@ -207,7 +231,7 @@
     <img class="q-image" src="page%20images/Intro (1).png" alt="" />
     <div class="hero-sub">The world's most magical froyo shop! Ordering a froyo should be simple right? Let's find out!</div>
     <button class="start-btn" onclick="startQuiz()">Start quiz &rarr;</button>
-    <div class="a11y-note">Designed to be easy to read: dyslexia, ADHD, low-vision, and reading-fatigue friendly.</div>
+    <div class="a11y-note">A fun quiz inspired by everyday executive function challenges linked to ADHD</div>
   </div>
 
   <!-- Quiz -->
@@ -240,10 +264,18 @@
         <button class="share-btn" onclick="downloadResult()">&#8681; Download result</button>
       </div>
       <div class="share-toast" id="share-toast">&#10003; Image downloaded!</div>
+      <div class="event-cta">
+        <i class="ti ti-calendar-event" aria-hidden="true"></i>
+        <div class="event-cta-body">
+          <p class="event-cta-hook">You&rsquo;ve met your flavour. Now see ADHD up close.</p>
+          <p><strong>ADHD in 3D: Step Inside My Mind</strong> &middot; Sat 17 Oct &middot; Temasek Shophouse &middot; Free</p>
+          <a class="event-cta-link" href="https://bit.ly/adhdin3d" target="_blank" rel="noopener">Plan your visit &rarr;</a>
+        </div>
+      </div>
     </div>
   </div>
 
-  <footer>Telegram @chipthelemon &middot; www.khai8386nguyen.github.io/</footer>
+  <footer>Created by <a href="https://github.com/khai8386nguyen" target="_blank" rel="noopener">github.com/khai8386nguyen</a> for Unlocking ADHD</footer>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
@@ -383,7 +415,7 @@ const questions = [
     thinker: "final_flavous/matcha_bloom.jpg",
     laser: "final_flavous/choco_fudge.jpg",
     follow: "final_flavous/caramel_crunch.jpg",
-    storm: "final_flavous/berry_bust.jpg"
+    storm: "final_flavous/berry_burst.jpg"
   };
 
   function computeMaxScores() {

@@ -1,0 +1,8 @@
+# The assets directory is the repo root, so anything tools drop here would go
+# public. Exclude by pattern, not by name: every dotfile/dotdir at any depth
+# (.git, .DS_Store, .wrangler, .claude, .env) plus node_modules (Miniflare cache).
+.*
+node_modules
+package*.json
+README.md
+wrangler.jsonc
