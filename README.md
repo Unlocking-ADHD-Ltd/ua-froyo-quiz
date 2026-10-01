@@ -1,16 +1,8 @@
-<!-- Scoring logic for the Whimsy Swirls froyo personality quiz:
+built a fun RPG quiz in support of **Unlocking ADHD***
+play around at: https://froyo.unlockingadhd.org.sg/
 
-Each answer is tagged with one (sometimes two) of six decision-making styles:
-  doer    -> Rainbow Rush
-  planner -> Honey Granola Bliss
-  thinker -> Matcha Bloom
-  laser   -> Triple Chocolate Crunch
-  follow  -> Salted Caramel Crunch
-  storm   -> Berry Burst
+every question is designed with **clinical psychology**, especially on mental skills like planning, focus, and follow-through that those with ADHD find harder to manage. These are known as **executive functions**.
 
-Every question contributes 2 points total. 
-- Answers tagged with a single style give that style 2 points
-- Answers tagged with two styles split the points, giving 1 point to each.
+big shoutout to the team @UA for your psychological expertise!
 
-Each category's earned points are divided by that category's own attainable max. The style with the highest resulting percentage
-wins. Ties are resolved in the order listed above. --!>
+***Unlocking ADHD** is a Singapore-based charity dedicated to raising awareness and providing resources around ADHD https://unlockingadhd.org.sg/
